@@ -1,252 +1,77 @@
-#!name=🚀 Ultimate Premium Unlock - 18in1
-#!desc=🎭 MEGA PACK - Premium Unlock All-In-One
-#!desc=🌟 Unlock Premium cho 18+ ứng dụng hàng đầu
-#!desc=📱 YouTube Premium • Spotify • SoundCloud • PicsArt
-#!desc=🎨 VSCO • Truecaller • Wink • Alight Motion
-#!desc=📄 Documents • Vivacut • Bilibili • Ezviz • Locket
-#!desc=✨ Và nhiều ứng dụng cao cấp khác!
-
-# 🎨 DESIGN BY: KH-DZ CREW
-# 💎 PREMIUM UNLOCK TECHNOLOGY
-# 🔥 CẬP NHẬT LIÊN TỤC - HOẠT ĐỘNG 24/7
-
-# 🚀 SOCIAL & SUPPORT
-# 💬 Discord: https://discord.gg/juY9tw5AJY
-# 📢 Telegram: @khdz_community
-# 🌐 Website: Coming Soon
-# ⭐ GitHub: top1saygexvn
-
-# 🛡️ FEATURES:
-# ✅ No Ads - Không quảng cáo
-# ✅ Premium Features - Mở khóa tính năng cao cấp
-# ✅ Lifetime Access - Truy cập trọn đời
-# ✅ Auto Update - Tự động cập nhật
-# ✅ Multi-Device - Hỗ trợ đa thiết bị
-
-# 🔄 LAST UPDATE: $(date +"%Y-%m-%d %H:%M:%S")
-# 📊 VERSION: 3.0.0
-# ⚡ STATUS: ACTIVE ✅
+#!name=🎯 KH-DZ Premium Unlock 18in1
+#!desc=✨ Unlock Premium cho 18 ứng dụng - Đơn giản & Hiệu quả
 
 [General]
-# 🎯 General Settings
 bypass-system = true
-skip-proxy = *.local, *.crashlytics.com, *.google-analytics.com
-tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12
-dns-server = 1.1.1.1, 8.8.8.8, 208.67.222.222
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local
+dns-server = system, 1.1.1.1
 ipv6 = false
-update-url = https://raw.githubusercontent.com/NightmarketServer/Ultimate-Pack/main/18in1.module
-
-# 🎨 UI Customization
-show-error-page-for-reject = true
-always-real-ip = *.apple.com, *.icloud.com, *.itunes.apple.com
 
 [MITM]
-# 🎭 MITM Configuration - Premium Unlock Center
 enable = true
-hostname = 
-# 💰 RevenueCat Services
-api.revenuecat.com, 
-buy.itunes.apple.com, 
-sub.store,
-# 🎬 Video & Streaming
-*.googlevideo.com, 
-www.youtube.com, 
-s.youtube.com, 
-youtubei.googleapis.com,
-*.bilibili.com,
-# 🎵 Music & Audio
-api-mobile.soundcloud.com, 
-spclient.wg.spotify.com,
-# 📸 Photo & Video Editing
-api-sub.meitu.com, 
-api.picsart.com, 
-us-central1-alight-creative.cloudfunctions.net,
-medi.dxzzy321.top,
-*.vsco.co,
-# 📱 Utilities
-premium*.truecaller.com, 
-license.pdfexpert.com,
-*.ezvizlife.com,
-# 🎮 Gaming & Social
-api.gamecenter.com,
-# 🔐 Security & Authentication
-*.apple.com, 
-*.icloud.com
-
-# 🎯 Certificate Configuration
-ca-passphrase = 
-ca-p12 = 
+hostname = *.googlevideo.com, www.youtube.com, youtubei.googleapis.com, api.revenuecat.com, buy.itunes.apple.com
 
 [Script]
-# ============================================
-# 🎵 MUSIC & AUDIO SECTION
-# ============================================
+# YouTube Premium
+youtube-premium = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(player|browse),requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Youtube-Premium/refs/heads/main/YouTubePremiumV3.5.module,timeout=10
 
-# 🎧 Spotify Premium Ultra 2024
-spotify-pro = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize|artistview\/v1\/artist|album-entity-view\/v2\/album),requires-body=1,binary-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/NightmarketServer/Spotify/refs/heads/main/SpotifyPr4.module,script-update-interval=86400,tag=🎵 Spotify Pro
+# Spotify Premium
+spotify-premium = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap),requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Spotify/refs/heads/main/SpotifyPr4.module,timeout=10
 
-# 🎶 SoundCloud Go+ Premium
-soundcloud-premium = type=http-response,pattern=^https:\/\/api-mobile\.soundcloud\.com\/(configuration\/ios|me|users\/\d+\/tracks),requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/SoundCloudPlus/refs/heads/main/SoundcloudGo.module,timeout=10,tag=🎶 SoundCloud Pro
+# SoundCloud
+soundcloud-premium = type=http-response,pattern=^https:\/\/api-mobile\.soundcloud\.com\/configuration,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/SoundCloudPlus/refs/heads/main/SoundcloudGo.module,timeout=10
 
-# ============================================
-# 🎬 VIDEO & STREAMING SECTION
-# ============================================
+# PicsArt
+picsart-premium = type=http-request,pattern=^https:\/\/api\.picsart\.com\/users\/me\/subscription,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/Picsart%20Premium.module,timeout=10
 
-# 📺 YouTube Premium V3.5 (Ultimate)
-youtube-ultimate = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|like\/like_endpoint))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Youtube-Premium/refs/heads/main/YouTubePremiumV3.5.module,argument="{"noAds":true,"backgroundPlay":true,"downloads":true,"premiumBadge":true}",timeout=15,tag=📺 YouTube Ultimate
+# VSCO
+vsco-premium = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/v1\/subscribers.*vsco,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/VSCO%20Premium.module,timeout=10
 
-# 🎮 Bilibili Premium Unlock
-bilibili-pro = type=http-response,pattern=^https:\/\/api\.bilibili\.com\/(x\/vip|pgc\/player\/api\/playurl|x\/credit\/v2\/mywallet),requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/Bilibili.module,timeout=10,tag=🎮 Bilibili Pro
+# Truecaller
+truecaller-premium = type=http-response,pattern=^https:\/\/premium.*\.truecaller\.com\/v1\/subscriptions,requires-body=1,script-path=https://github.com/NightmarketServer/Shadowrocket-Module/blob/main/Module/TrueCaller.module,timeout=10
 
-# ============================================
-# 📸 PHOTO & VIDEO EDITING SECTION
-# ============================================
+# Wink (Meitu)
+wink-premium = type=http-response,pattern=^https:\/\/api-sub\.meitu\.com\/v2\/user\/vip_info,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/VIP%20Wink.module,timeout=10
 
-# 🎨 Alight Motion Pro (4K Video Editor)
-alight-motion-pro = type=http-response,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/(getAccountStatusAndLicenses|validateReceipt),requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/Alight%20Motion.module,timeout=10,tag=🎨 Alight Motion Pro
+# Alight Motion
+alight-premium = type=http-response,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatus,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/Alight%20Motion.module,timeout=10
 
-# ✂️ Vivacut Premium Editor
-vivacut-pro = type=http-response,pattern=^https:\/\/medi\.dxzzy321\.top\/api\/rest\/commerce\/integrate\/vip\/perform$,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/Vivacut.module,timeout=10,tag=✂️ Vivacut Pro
+# Vivacut
+vivacut-premium = type=http-response,pattern=^https:\/\/medi\.dxzzy321\.top\/api\/rest\/commerce\/integrate\/vip,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/Vivacut.module,timeout=10
 
-# 🌌 VSCO Premium Presets
-vsco-premium = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/v1\/(receipts|subscribers).*vsco.*$,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/VSCO%20Premium.module,timeout=10,tag=🌌 VSCO Premium
+# Bilibili
+bilibili-premium = type=http-response,pattern=^https:\/\/api\.bilibili\.com\/x\/vip,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/Bilibili.module,timeout=10
 
-# 🖼️ PicsArt Gold Unlock
-picsart-gold = type=http-request,pattern=^https:\/\/api\.picsart\.com\/(gw-v2\/shop\/subscription\/apple\/purchases|users\/me\/subscription),requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/Picsart%20Premium.module,timeout=10,tag=🖼️ PicsArt Gold
+# Ezviz
+ezviz-premium = type=http-response,pattern=^https:\/\/api\.ezvizlife\.com\/api\/user\/vip,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/Ezviz.module,timeout=10
 
-# ============================================
-# 📱 UTILITIES & PRODUCTIVITY SECTION
-# ============================================
-
-# 📞 Truecaller Premium+
-truecaller-premium = type=http-response,pattern=^https:\/\/premium-(.+?)\.truecaller\.com\/v\d+\/(subscriptions|products\/apple|profile),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/main/Module/TrueCaller.module,timeout=10,tag=📞 Truecaller Premium+
-
-# 📹 Ezviz Cloud Premium
-ezviz-pro = type=http-response,pattern=^https:\/\/api\.ezvizlife\.com\/api\/(user\/vip\/status|device\/list),requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/Ezviz.module,timeout=10,tag=📹 Ezviz Pro
-
-# 💫 Wink (Meitu) VIP Unlock
-wink-vip = type=http-response,pattern=^https:\/\/api-sub\.meitu\.com\/v2\/(user\/vip_info_by_group\.json|vip\/status),requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/VIP%20Wink.module,timeout=10,tag=💫 Wink VIP
-
-# 📄 Documents by Readdle Pro
-documents-pro = type=http-request,pattern=^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh,requires-body=1,script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/documents.js,timeout=10,tag=📄 Documents Pro
-
-# 🔐 Locket Widget Gold
-locket-gold = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/v1\/subscribers\/.*locket.*$,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Locket/refs/heads/main/Locketgold-V10.module,timeout=10,tag=🔐 Locket Gold
-
-# 🎭 SoundCloud+ Extra Features
-soundcloud-plus = type=http-response,pattern=^https:\/\/api-mobile\.soundcloud\.com\/playlists\/\d+,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/SoundCloudPlus/refs/heads/main/soundcloud%2B.module,timeout=10,tag=🎭 SoundCloud+
-
-# ============================================
-# 🚀 ENHANCEMENT SCRIPTS
-# ============================================
-
-# ⚡ Performance Boost
-performance-boost = type=http-response,pattern=.*,requires-body=0,script-path=https://raw.githubusercontent.com/NightmarketServer/Performance/main/boost.js,timeout=5,tag=⚡ Performance Boost
-
-# 🛡️ Anti-Ban Protection
-anti-ban = type=http-response,pattern=^https:\/\/api\.revenuecat\.com,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Security/main/anti-ban.js,timeout=5,tag=🛡️ Anti-Ban
-
-# 🔄 Auto-Renew Checker
-renew-checker = type=cron,cronexp=0 0 */3 * * *,script-path=https://raw.githubusercontent.com/NightmarketServer/Monitor/main/renew.js,timeout=30,tag=🔄 Auto-Renew
+# Locket
+locket-premium = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/v1\/subscribers.*locket,requires-body=1,script-path=https://raw.githubusercontent.com/NightmarketServer/Locket/refs/heads/main/Locketgold-V10.module,timeout=10
 
 [Rule]
-# ============================================
-# 🎯 RULE CONFIGURATION - SMART ROUTING
-# ============================================
-
-# 🚫 Block Ads & Trackers
-DOMAIN-SUFFIX,doubleclick.net,REJECT
-DOMAIN-SUFFIX,googleadservices.com,REJECT
-DOMAIN-SUFFIX,googlesyndication.com,REJECT
-DOMAIN-SUFFIX,applovin.com,REJECT
-DOMAIN-SUFFIX,unity3d.com,REJECT
-DOMAIN-SUFFIX,adjust.com,REJECT
-
-# 🎵 Music Services
-DOMAIN,spclient.wg.spotify.com,DIRECT
-DOMAIN-SUFFIX,soundcloud.com,DIRECT
-DOMAIN-SUFFIX,scdn.co,DIRECT
-
-# 🎬 Video Streaming
+# Cho phép tất cả traffic qua
+DOMAIN-SUFFIX,googlevideo.com,DIRECT
 DOMAIN-SUFFIX,youtube.com,DIRECT
-DOMAIN-SUFFIX,youtu.be,DIRECT
-DOMAIN-SUFFIX,bilibili.com,DIRECT
-AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
-AND,((DOMAIN,youtubei.googleapis.com), (PROTOCOL,UDP)),REJECT
-
-# 📸 Photo & Editing Apps
+DOMAIN-SUFFIX,revenuecat.com,DIRECT
+DOMAIN-SUFFIX,apple.com,DIRECT
+DOMAIN-SUFFIX,soundcloud.com,DIRECT
+DOMAIN-SUFFIX,spotify.com,DIRECT
 DOMAIN-SUFFIX,picsart.com,DIRECT
 DOMAIN-SUFFIX,vsco.co,DIRECT
+DOMAIN-SUFFIX,truecaller.com,DIRECT
 DOMAIN-SUFFIX,meitu.com,DIRECT
 DOMAIN-SUFFIX,alightcreative.com,DIRECT
-
-# 📱 Utilities
-DOMAIN-SUFFIX,truecaller.com,DIRECT
+DOMAIN-SUFFIX,bilibili.com,DIRECT
 DOMAIN-SUFFIX,ezvizlife.com,DIRECT
-DOMAIN-SUFFIX,pdfexpert.com,DIRECT
-DOMAIN-SUFFIX,locket.com,DIRECT
 
-# ⚡ Performance Rules
-DOMAIN-SUFFIX,cloudflare.com,DIRECT
-DOMAIN-SUFFIX,akamai.net,DIRECT
-DOMAIN-SUFFIX,fastly.net,DIRECT
+# Chặn quảng cáo cơ bản
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+DOMAIN-SUFFIX,googleadservices.com,REJECT
 
-# 🌐 Final Fallback
-GEOIP,CN,DIRECT
-FINAL,PROXY
+# Mặc định đi DIRECT để có mạng
+FINAL,DIRECT
 
 [URL Rewrite]
-# ============================================
-# 🔧 URL REWRITES - ENHANCED EXPERIENCE
-# ============================================
-
-# 🎬 YouTube Ad Block (Advanced)
-^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&(oad|ctier) _ reject-200
-^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/(ads|qoe) _ reject-200
-^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) _ reject-200
-^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(log_event|ads) _ reject-200
-
-# 🎵 Music Services Enhancement
-^https?:\/\/api\.spotify\.com\/v1\/ads\? _ reject-200
-^https?:\/\/api\.soundcloud\.com\/ads\? _ reject-200
-
-# 📸 Photo Apps Premium Unlock
-^https?:\/\/api\.picsart\.com\/ads\? _ reject-200
-^https?:\/\/api\.vsco\.co\/ads\? _ reject-200
-
-# 🚀 Performance Optimization
-^https?:\/\/.*\.googleapis\.com\/generate_204 _ reject-200
-^https?:\/\/.*\.apple\.com\/validate _ reject-200
-
-# 🎨 Smart Redirects for Premium Features
-^https?:\/\/api\.revenuecat\.com\/v1\/receipts$ https://api.revenuecat.com/v1/subscriptions/premium 302
-^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$ https://verify.premium.nightmarket.com 302
-
-[Map Local]
-# ============================================
-# 🗺️ LOCAL MAPPING - PREMIUM RESPONSES
-# ============================================
-
-# 🎬 YouTube Premium Response
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=application/json data='{"premium":true,"ads":false}' status-code=200
-
-# 💰 RevenueCat Premium Subscription
-^https?:\/\/api\.revenuecat\.com\/v1\/subscribers\/.+\/entitlements data-type=application/json data='{"premium_entitlement":{"expires_date":"2099-12-31T23:59:59Z","product_identifier":"premium_lifetime","purchase_date":"2024-01-01T00:00:00Z"}}' status-code=200
-
-# 🎵 Spotify Premium Status
-^https?:\/\/spclient\.wg\.spotify\.com\/account\/overview\/view data-type=application/json data='{"product_state":"premium","expires_at":"20991231235959"}' status-code=200
-
-# ============================================
-# 🎉 CONFIGURATION COMPLETE!
-# ============================================
-
-# 🚀 KH-DZ ULTIMATE PREMIUM UNLOCK
-# 📍 Status: ACTIVE & WORKING
-# 🔄 Next Update: Auto
-# ⭐ Rating: 18/36 Stars
-# 👥 Users: 10,000+
-
-# 💝 Donate: BTC - 1KHdzCommunityXXXX
-# 📧 Contact: admin@kh-dz.com
-
-# 🎊 Enjoy Premium Experience!
+^https?:\/\/www\.youtube\.com\/api\/stats\/ads _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/pagead _ reject-200
+^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/log_event _ reject-200
